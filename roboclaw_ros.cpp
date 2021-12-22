@@ -42,7 +42,6 @@ public:
             publish_current_speed_frequency_ = 5.0;
         }
         current_speed_publisher_ = nh->advertise<std_msgs::Int32>("current_speed", 10);
-        motor_status_publisher_ = nh->advertise<diagnostic_msgs::DiagnosticStatus>("motor_status", 10);
         current_speed_timer_ = nh->createTimer(
             ros::Duration(1.0 / publish_current_speed_frequency_),
             &MotorDriverROSWrapper::publishCurrentSpeed, this);
